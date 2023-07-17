@@ -1,6 +1,6 @@
 #include "Contact.hpp"
-
 #include <cstdlib>
+
 static void get_info(std::string& block, const char *entry_wanted)
 {
 	int stop;
@@ -13,7 +13,7 @@ static void get_info(std::string& block, const char *entry_wanted)
 		{
 			if (std::cin.eof())
 			{
-				std::cout << "\nErro plz, avoid entering EOF" << std::endl;
+				std::cout << "\nError plz, avoid entering EOF" << std::endl;
 				std::exit(0);
 			}
 			std::cin.clear();
@@ -27,12 +27,7 @@ static void get_info(std::string& block, const char *entry_wanted)
 
 Contact::Contact()
 {
-	// gader all the info to craet our contact object
-	get_info(FirstName, "first name");
-	get_info(LastName, "last name");
-	get_info(NickName, "nick name");
-	get_info(PhoneNumber, "phone number");
-	get_info(DarkestSecret, "darkes secret");
+	std::cout << "Created contact\n";
 }
 
 Contact::~Contact()
@@ -52,4 +47,14 @@ std::string Contact::getFirstName()
 std::string Contact::getLastName()
 {
 	return (LastName);
+}
+
+void Contact::setData()
+{
+	// gader all the info to craet our contact object
+	get_info(FirstName, "first name");
+	get_info(LastName, "last name");
+	get_info(NickName, "nick name");
+	get_info(PhoneNumber, "phone number");
+	get_info(DarkestSecret, "darkes secret");
 }

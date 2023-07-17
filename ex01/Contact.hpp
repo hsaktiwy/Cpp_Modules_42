@@ -18,6 +18,7 @@ class Contact{
 	public:
 		Contact();
 		~Contact();
+		void setData();
 		std::string getLastName();
 		std::string getFirstName();
 		std::string getNickName();
