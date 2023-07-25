@@ -3,28 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lol <lol@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:03:22 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/07/23 16:52:20 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/07/24 13:52:35 by lol              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
 int main( void ) {
+	// Fixed a = Fixed(7.5f), b = Fixed(2.1f);
+
+	// std::cout << "a + b:" << (a + b).toFloat() << std::endl;
+	// std::cout << "a - b:" << (a - b).toFloat() << std::endl;
+	// std::cout << "a * b:" << (a * b).toFloat() << std::endl;
+	// std::cout << "a / b:" << (a / b).toFloat() << std::endl;
 	Fixed a;
-	Fixed const b( 10 );
-	Fixed const c( 42.42f );
-	Fixed const d( b );
-	a = Fixed( 1234.4321f );
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	//std::cout << Fixed::max( a, b ) << std::endl;
+
 	return 0;
 }

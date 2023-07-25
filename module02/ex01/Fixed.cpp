@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lol <lol@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 12:52:56 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/07/23 17:57:51 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/07/24 10:40:50 by lol              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ Fixed::Fixed()
 Fixed::Fixed(const int value)
 {
 	std::cout << "Int constructor called\n";
-	fixed = value * (1 << NUM_FRACTION_NITS);	
+	fixed = value * (1 << NUM_FRACTION_INTS);	
 }
 
 Fixed::Fixed(const float value)
 {
 	std::cout << "Float constructor called\n";
-	fixed = std::roundf((value * (1 << NUM_FRACTION_NITS)));
+	fixed = std::roundf((value * (1 << NUM_FRACTION_INTS)));
 }
 
 Fixed::Fixed(const Fixed& to_copy)
@@ -73,11 +73,11 @@ void Fixed::setRawBits( int const raw )
 
 int		Fixed::toInt( void ) const
 {
-	return (fixed / (1 << NUM_FRACTION_NITS));
+	return (fixed / (1 << NUM_FRACTION_INTS));
 }
 
 float	Fixed::toFloat( void ) const
 {
-	float devider = 1 << NUM_FRACTION_NITS;
+	float devider = 1 << NUM_FRACTION_INTS;
 	return (fixed / devider);
 }

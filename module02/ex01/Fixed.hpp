@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lol <lol@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 12:10:00 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/07/23 17:39:16 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/07/24 10:40:50 by lol              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 	{
 		private:
 			int	fixed;
-			static const int NUM_FRACTION_NITS = 8;
+			static const int NUM_FRACTION_INTS = 8;
 		public:
 			Fixed();
 			Fixed(const int value);

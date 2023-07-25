@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lol <lol@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 12:10:00 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/07/23 19:05:10 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/07/24 13:46:58 by lol              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 	{
 		private:
 			int	fixed;
-			static const int NUM_FRACTION_NITS = 8;
+			static const int NUM_FRACTION_INTS = 8;
 		public:
 			Fixed();
 			Fixed(const int value);
@@ -44,7 +44,13 @@
 			Fixed	operator*(const Fixed& other) const;
 			Fixed	operator/(const Fixed& other) const;
 			
+			// posfix/prefix ++ --
+			Fixed&	operator++();
+			Fixed&	operator--();
+			Fixed	operator++(int);
+			Fixed	operator--(int);
 			
+
 	};
 	std::ostream& operator<<(std::ostream& os, const Fixed& object);
 #endif
