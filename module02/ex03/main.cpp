@@ -6,11 +6,11 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:03:22 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/07/25 08:43:57 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/07/25 10:11:15 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Point.hpp"
 #include <iostream>
 int main( void ) {
 	Fixed e = Fixed(7.5f), f = Fixed(2.1f);
@@ -29,6 +29,10 @@ int main( void ) {
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
-
+	
+	std::cout << "/////////////////Point \n";
+	Point c, d(2.75f, 5.5f);
+	std::cout << "c(" << c.getX() << "," << c.getY() << ")" << std::endl;
+	std::cout << "d(" << d.getX() << "," << d.getY() << ")" << std::endl;
 	return 0;
 }
