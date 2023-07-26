@@ -1,0 +1,6 @@
+There are 2 Ways to Avoid this Ambiguity: 
+1) Avoiding ambiguity using the scope resolution operator: Using the scope resolution operator
+we can manually specify the path from which data member a will be accessed, as shown in statements
+3 and 4, in the above example.
+2) Avoiding ambiguity using the virtual base class:
+using this we will have only one copye of the class ClapTrap not 2;
