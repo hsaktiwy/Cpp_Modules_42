@@ -6,7 +6,7 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 08:57:23 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/07/21 11:51:09 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/07/29 10:05:35 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,6 @@ int		Account::checkAmount( void ) const
 void	Account::displayStatus( void ) const
 {
 	_displayTimestamp();
-	std::cout << " index" << _accountIndex << ";amount:" << _amount;
+	std::cout << " index:" << _accountIndex << ";amount:" << _amount;
 	std::cout << ";deposits:" << _nbDeposits << ";withdrawals:" << _nbWithdrawals << std::endl;
 }

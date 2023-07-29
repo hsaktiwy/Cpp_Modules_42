@@ -4,7 +4,10 @@
 static void display_helper(std::string str)
 {
 	if (str.length() > 10)
-		std::cout << str.substr(0, 8) << ".";
+	{
+		std::string substr = str.substr(0, 9);
+		std::cout << substr << ".";
+	}
 	else
 		std::cout << std::setw(10) << str;
 }
@@ -30,27 +33,39 @@ PhoneBook::PhoneBook()
 
 PhoneBook::~PhoneBook()
 {
-	std::cout << "Thx for your interst in our service plus lucky for you u lst all your info\n";
 }
 
 void	PhoneBook::addContact()
 {
-	Contact contact;
-	contact.setData();
-	contacts[oldes] = contact;
+	contacts[oldes].setData();
 	if (oldes == 7)
 		oldes = 0;
 	else
 		oldes++;
 }
 
-void	PhoneBook::searchContact(int index)
+int	PhoneBook::searchContact(int index)
 {
-	if (index < 1 || index > 8)
-		std::cout << "Pls Enter a correct index ( in the following range [1, 8])\n";
-	else
+	if (index <= 8)
 	{
-		display_contact(contacts[index - 1], index);
+		if (contacts[i - 1].empty())// u wher searching for empty detection function
+
+	}
+	else
+		return (0)
+}
+
+void PhoneBook::displayPhoneBook(void)
+{
+	int i;
+
+	i = -1;
+	std::cout << " Index    | Name     | LastName | NickName \n";
+	std::cout << "-------------------------------------------\n";
+	while (++i < 8)
+	{
+		if (contacts[i].getFirstName().length())
+			display_contact(contacts[i], i + 1);
 	}
 }
 
