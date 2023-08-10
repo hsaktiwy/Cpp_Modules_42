@@ -46,14 +46,24 @@ void	PhoneBook::addContact()
 
 int	PhoneBook::searchContact(int index)
 {
-	if (index <= 8)
+	if (index <= 8 && index >= 1)
 	{
-		if (contacts[i - 1].empty())// u wher searching for empty detection function
-
+		if (!contacts[index - 1].getFirstName().empty())
+		{
+			std::cout << "First Name: " << contacts[index - 1].getFirstName() << std::endl;
+			std::cout << "Last Name: " << contacts[index - 1].getLastName() << std::endl;
+			std::cout << "Nick Name: " << contacts[index - 1].getNickName() << std::endl;
+			std::cout << "Phone Number: " << contacts[index - 1].getPhoneNumber() << std::endl;
+			std::cout << "Darckest Secret: " << contacts[index - 1].getDarkestSecret() << std::endl;
+		}
+		else
+			std::cout << "Empty Field!!!" << std::endl;
 	}
 	else
-		return (0)
+		return (0);
+	return (1);
 }
+
 
 void PhoneBook::displayPhoneBook(void)
 {

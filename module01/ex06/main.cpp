@@ -6,7 +6,7 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 15:51:13 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/07/22 17:28:01 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/08/10 16:04:38 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int main(int argc, char **argv)
 	{
 		std::string level = argv[1];
 		harl.complaine(level);
-	}else
+	}
+	else
 		std::cout << "We only accept One argument!!!!" << std::endl;
 	return 0; 
 }

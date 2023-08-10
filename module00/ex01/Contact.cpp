@@ -1,7 +1,20 @@
 #include "Contact.hpp"
 #include <cstdlib>
 
-static int getPrompt(std::string& block)
+static int isPhoneNumber(std::string &str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+	}
+	return (1);
+}
+
+static int getPrompt(std::string& block, int (*function)(std::string&))
 {
 	std::getline(std::cin, block);
 	if (std::cin.eof())
@@ -10,18 +23,33 @@ static int getPrompt(std::string& block)
 	}
 	if (block.length() == 0)
 		return (0);
+	if (function != NULL)
+	{
+		if (!function(block))
+			return (0);
+	}
 	return 1;
 }
 
-static void get_info(std::string& block, const char *entry_wanted)
+static void get_info(std::string& block, const char *entry_wanted, int checkPhoneNumber)
 {
 	while (true)
 	{
 		std::cout << "Enter the " << entry_wanted << " : ";
-		if (!getPrompt(block))
-			std::cout << "Try again (input is not accepted)!!" << std::endl;
+		if (!checkPhoneNumber)
+		{
+			if (!getPrompt(block, NULL))
+				std::cout << "Try again (input is not accepted)!!" << std::endl;
+			else
+				break ;
+		}
 		else
-			break ;
+		{
+			if (!getPrompt(block, isPhoneNumber))
+				std::cout << "Try again (input is not accepted)!!" << std::endl;
+			else
+				break ;
+		}
 	}
 }
 
@@ -62,9 +90,9 @@ std::string Contact::getDarkestSecret()
 void Contact::setData()
 {
 	// gader all the info to craet our contact object
-	get_info(FirstName, "first name");
-	get_info(LastName, "last name");
-	get_info(NickName, "nick name");
-	get_info(PhoneNumber, "phone number");
-	get_info(DarkestSecret, "darkes secret");
+	get_info(FirstName, "first name", 0);
+	get_info(LastName, "last name", 0);
+	get_info(NickName, "nick name", 0);
+	get_info(PhoneNumber, "phone number", 1);
+	get_info(DarkestSecret, "darkes secret", 0);
 }

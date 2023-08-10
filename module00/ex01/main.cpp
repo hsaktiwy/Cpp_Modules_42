@@ -31,7 +31,7 @@ static void searching(PhoneBook &ContactsBook)
 		{
 				if(!ContactsBook.searchContact(index))
 				{
-
+					std::cout << "Invalide index (" << index << "), try this range[1, 8]\n";
 				}
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -44,7 +44,7 @@ int main()
 {
 	PhoneBook ContactsBook;
 	std::string command;
-	std::cout << "Welcome to our PhoneBook service  : (Plz write ADD: to add a contact, SEARCH: to search for one, EXIT: to stop the programme)\n";
+	std::cout << "Welcome to our PhoneBook service  : (Plz write ADD: to add a contact, SEARCH: to display contacts list and search for one, EXIT: to stop the programme)\n";
 	while (true)
 	{
 		std::cout << "Enter your Command : ";
