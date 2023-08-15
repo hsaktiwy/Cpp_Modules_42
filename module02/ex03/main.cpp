@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lol <lol@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:03:22 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/07/25 10:11:15 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/08/14 18:00:41 by lol              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
+#include 
 #include <iostream>
 int main( void ) {
 	Fixed e = Fixed(7.5f), f = Fixed(2.1f);
@@ -34,5 +35,7 @@ int main( void ) {
 	Point c, d(2.75f, 5.5f);
 	std::cout << "c(" << c.getX() << "," << c.getY() << ")" << std::endl;
 	std::cout << "d(" << d.getX() << "," << d.getY() << ")" << std::endl;
+
+	
 	return 0;
 }
