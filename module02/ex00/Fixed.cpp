@@ -6,12 +6,14 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 12:52:56 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/07/23 13:42:03 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/08/17 16:02:08 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
+
+const int Fixed::NUM_FRACTION_INTS = 8;
 
 Fixed::Fixed()
 {
@@ -22,7 +24,7 @@ Fixed::Fixed()
 Fixed::Fixed(const Fixed& to_copy)
 {
 	std::cout << "Copy constructor called\n";
-	this->fixed = to_copy.fixed;
+	fixed = to_copy.fixed;
 }
 
 Fixed::~Fixed()
@@ -32,7 +34,7 @@ Fixed::~Fixed()
 
 Fixed& Fixed::operator=(const Fixed& other)
 {
-	std::cout << "Copy assignment operator called";
+	std::cout << "Copy assignment operator called\n";
 	if (this != &other)
 	{
 		this->fixed = other.getRawBits();

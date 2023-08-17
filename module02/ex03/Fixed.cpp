@@ -6,12 +6,15 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 12:52:56 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/07/25 10:24:05 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/08/17 15:58:04 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <cmath>
+
+
+const int Fixed::NUM_FRACTION_INTS = 8;
 
 Fixed::Fixed()
 {
@@ -37,7 +40,7 @@ Fixed::~Fixed()
 {
 }
 
-Fixed& Fixed::operator=(const Fixed& other)
+Fixed& Fixed::operator=(const Fixed& other) 
 {
 	if (this != &other)
 	{

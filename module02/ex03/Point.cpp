@@ -6,7 +6,7 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 08:57:40 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/07/25 14:10:49 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/08/17 15:42:13 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,12 @@ Point::Point(const Point& object): x(object.x), y(object.y)
 Point& Point::operator=(const Point& object) 
 {
 	if (this != &object)
-		return (*this);
+	{
+		// ??
+		std::cout << "in Point assigned operator\n";
+		(Fixed&)this->x = object.x;// why not working without reffrence ??? Question to answer
+		(Fixed&)this->y = object.y;
+	}
 	return (*this);
 }
 

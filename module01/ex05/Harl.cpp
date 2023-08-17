@@ -6,7 +6,7 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 14:06:39 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/07/22 16:45:58 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/08/10 19:43:45 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,41 @@ void	Harl::error( void )
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;	
 }
 
+static unsigned int hash(const char *str)
+{
+	unsigned int hash = 0;
+	int i = 0;
+	int p = 1;
+
+	while (i < 13 && str[i])
+	{
+		hash = hash + str[i] * p;
+		p *= 7;
+		i++;
+	}
+	return (hash);
+}
+
 void	Harl::complaine(std::string level)
 {
-	if (level.compare("DEBUG") == 0)
-		debug();
-	if (level.compare("INFO") == 0)
-		info();
-	if (level.compare("WARNING") == 0)
-		warning();
-	if (level.compare("ERROR") == 0)
-		error();
+	void (Harl::*ptrhrl) (void) = NULL;
+	switch (hash(&level[0]))
+	{
+		case 203411:
+			ptrhrl = &Harl::debug;
+			break;
+		case 31146:
+			ptrhrl = &Harl::info;
+			break;
+		case 9870612:
+			ptrhrl = &Harl::warning;
+			break;
+		case 228640:
+			ptrhrl = &Harl::error;
+			break;
+		default:
+			break;
+	}
+	if (ptrhrl)
+		(this->*ptrhrl)();
 }
