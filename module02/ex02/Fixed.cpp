@@ -6,7 +6,7 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 12:52:56 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/08/17 15:58:12 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/08/18 17:43:59 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ Fixed	Fixed::operator+(const Fixed& other) const
 	int		v = this->fixed + other.fixed;
 	Fixed	res;
 	res.setRawBits(v);
-	return (res);	
+	return (res);
 }
 
 Fixed	Fixed::operator-(const Fixed& other) const
@@ -123,7 +123,7 @@ Fixed	Fixed::operator-(const Fixed& other) const
 	int		v = this->fixed - other.fixed;
 	Fixed	res;
 	res.setRawBits(v);
-	return (res);	
+	return (res);
 }
 
 Fixed	Fixed::operator*(const Fixed& other) const
