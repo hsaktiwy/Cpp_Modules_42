@@ -6,7 +6,7 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 12:52:56 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/08/18 17:43:59 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/08/20 11:44:54 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,32 +80,32 @@ float	Fixed::toFloat( void ) const
 // 6 comparison ops < > <= >= == !=
 bool Fixed::operator<=(const Fixed& other) const
 {
-	return (this->fixed <=other.fixed);
+	return (this->fixed <= other.fixed);
 }
 
 bool Fixed::operator<(const Fixed& other) const
 {
-	return (this->fixed <other.fixed);
+	return (this->fixed < other.fixed);
 }
 
 bool Fixed::operator>=(const Fixed& other) const
 {
-	return (this->fixed >=other.fixed);
+	return (this->fixed >= other.fixed);
 }
 
 bool Fixed::operator>(const Fixed& other) const
 {
-	return (this->fixed >other.fixed);
+	return (this->fixed > other.fixed);
 }
 
 bool Fixed::operator==(const Fixed& other) const
 {
-	return (this->fixed ==other.fixed);
+	return (this->fixed == other.fixed);
 }
 
 bool Fixed::operator!=(const Fixed& other) const
 {
-	return (this->fixed !=other.fixed);
+	return (this->fixed != other.fixed);
 }
 
 //4 operation + - * /

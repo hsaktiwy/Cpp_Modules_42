@@ -6,7 +6,7 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 12:52:56 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/08/17 16:02:08 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/08/20 11:12:02 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Fixed::Fixed()
 Fixed::Fixed(const Fixed& to_copy)
 {
 	std::cout << "Copy constructor called\n";
-	fixed = to_copy.fixed;
+	fixed = to_copy.getRawBits();
 }
 
 Fixed::~Fixed()

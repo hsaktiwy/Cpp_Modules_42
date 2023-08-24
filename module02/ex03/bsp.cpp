@@ -6,7 +6,7 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 15:21:53 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/08/17 11:30:47 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/08/20 12:50:49 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
 	P1 = area(point, b, c);
 	P2 = area(a, point, c);
 	P3 = area(a, b, point);
-	if (*A == (*P1 + *P2 + *P3))
+	if	(*P1 == 0 ||  *P2 == 0 || *P3 == 0)
+		in_triangle = false;
+	else if (*A == (*P1 + *P2 + *P3))
 		in_triangle = true;
 	else
 		in_triangle = false;
