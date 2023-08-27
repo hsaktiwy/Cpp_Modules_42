@@ -6,7 +6,7 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 18:50:47 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/07/25 19:02:05 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/08/27 12:52:31 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ int main()
 	c.attack("BOO21");
 	a.takeDamage(10);
 	a.beRepaired(3);
-	while (++n < 10)
+	while (++n < 11)
+	{
+		std::cout << "ClapTrap try to repair for the " << n << " time" << std::endl;
 		c.beRepaired(1);
+	}
+	return (0);
 }

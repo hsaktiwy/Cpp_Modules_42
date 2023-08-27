@@ -6,13 +6,13 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 13:44:30 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/07/26 14:45:34 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/08/27 13:33:09 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap(): ClapTrap(), FragTrap(), ScavTrap()
 {
 	std::cout << "DiamondTrap Default Constructor\n";
 	HitPoint = FragTrap::HitPoint;

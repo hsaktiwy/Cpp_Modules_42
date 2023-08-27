@@ -6,7 +6,7 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 10:21:33 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/07/26 12:52:46 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/08/27 12:56:55 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,6 @@ void ScavTrap::attack(const std::string& target)
 		std::cout << ", causing " << Attack_damage << " points of damage!" << std::endl;
 		Energie_p--;
 	}
-	else if (HitPoint == 0)
-		std::cout << "ScavTrap " << Name << " can't attack (have 0 Hit point)!" << std::endl;
-	else
-		std::cout << "ScavTrap " << Name << " can't attack (out off the Energie)!\n";
 }
 
 void ScavTrap::guardGate()

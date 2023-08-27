@@ -6,7 +6,7 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 17:55:54 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/07/25 19:11:37 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/08/27 12:56:06 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,6 @@ void	ClapTrap::attack(const std::string& target)
 		std::cout << ", causing " << Attack_damage << " points of damage!" << std::endl;
 		Energie_p--;
 	}
-	else if (HitPoint == 0)
-		std::cout << "ClapTrap " << Name << " can't attack (have 0 Hit point)!" << std::endl;
-	else
-		std::cout << "ClapTrap " << Name << " can't attack (out off the Energie)!\n";
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
@@ -78,8 +74,6 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		else
 			HitPoint -= amount;
 	}
-	else
-		std::cout << "ClapTrap " << Name << " can tack no more damage (0 hit point)!" << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
@@ -90,8 +84,4 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		HitPoint += amount;
 		Energie_p--;
 	}
-	else if (HitPoint == 0)
-		std::cout << "ClapTrap " << Name << " noting to repaire(0 hit point)!" << std::endl;
-	else
-		std::cout << "ClapTrap " << Name << " can't be repaire (out off the Energie!)\n";
 }

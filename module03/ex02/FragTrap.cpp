@@ -6,14 +6,14 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:56:34 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/07/26 13:38:24 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/08/27 13:23:34 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include <iostream>
 
-FragTrap::FragTrap()
+FragTrap::FragTrap(): ClapTrap()
 {
 	std::cout << "FragTrap Default Constructor\n";
 	HitPoint = 100;
