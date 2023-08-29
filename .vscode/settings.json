@@ -1,5 +1,6 @@
 {
 	"files.associations": {
+		"*.c": "c",
 		"__bit_reference": "cpp",
 		"__config": "cpp",
 		"__debug": "cpp",
@@ -63,6 +64,12 @@
 		"vector": "cpp",
 		"fstream": "cpp",
 		"deque": "cpp",
-		"stack": "cpp"
+		"stack": "cpp",
+		"*.tcc": "cpp",
+		"clocale": "cpp",
+		"memory_resource": "cpp",
+		"numeric": "cpp",
+		"random": "cpp",
+		"cinttypes": "cpp"
 	}
 }
