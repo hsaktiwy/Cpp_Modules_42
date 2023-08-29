@@ -6,13 +6,13 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 16:59:02 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/08/08 20:34:53 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:12:58 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 #include "HumanB.hpp"
-
+#include <iostream>
 int	main()
 {
 	{
@@ -30,5 +30,10 @@ int	main()
 		club.setType("some other type of club");
 		jim.attack();
 	}
+    Weapon club = Weapon("crude spiked club");
+	std::string s = club.getType();
+	std::string& d = s;
+	s = "hello";
+	std::cout << club.getType() << " " << s << " " << d << std::endl;
 	return 0;
 }

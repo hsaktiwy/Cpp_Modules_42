@@ -31,7 +31,7 @@ void	Weapon::setType(std::string n_type)
 	type = n_type;
 }
 
-const std::string& Weapon::getType()
+std::string Weapon::getType()
 {
 	return (type);
 }
