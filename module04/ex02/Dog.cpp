@@ -1,6 +1,6 @@
 #include "Dog.hpp"
 
-Dog::Dog(): Animal()
+Dog::Dog(): AAnimal()
 {
 	type = "Dog";
 	brain = new Brain();
@@ -13,7 +13,7 @@ Dog::~Dog()
 	delete brain;
 }
 
-Dog::Dog(const Dog& toCopy) : Animal(toCopy)
+Dog::Dog(const Dog& toCopy) : AAnimal(toCopy)
 {
 	std::cout << "Obj: Dog is Craeted (Copy Constructed)" << std::endl;
 	brain = new Brain();

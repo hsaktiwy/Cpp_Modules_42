@@ -6,7 +6,7 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 13:44:30 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/08/27 14:04:21 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/08/29 17:49:53 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ DiamondTrap::DiamondTrap(): ClapTrap(), FragTrap(), ScavTrap()
 	Attack_damage = this->FragTrap::Attack_damage;
 }
 
-DiamondTrap::DiamondTrap(std::string t_Name):ClapTrap(t_Name + "_clap_name"), FragTrap(t_Name), ScavTrap(t_Name) 
+DiamondTrap::DiamondTrap(std::string t_Name):ClapTrap(t_Name + "_clap_name"), FragTrap(t_Name), ScavTrap(t_Name)
 {
 	std::cout << "DiamondTrap Naming Constructor\n";
 	DiamondTrap::Name = t_Name;

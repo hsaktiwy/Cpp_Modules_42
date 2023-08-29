@@ -1,6 +1,6 @@
 #include "Cat.hpp"
 
-Cat::Cat() : Animal()
+Cat::Cat() : AAnimal()
 {
 	type = "Cat";
 	brain = new Brain();
@@ -13,7 +13,7 @@ Cat::~Cat()
 	delete brain;
 }
 
-Cat::Cat(const Cat& toCopy) : Animal(toCopy)
+Cat::Cat(const Cat& toCopy) : AAnimal(toCopy)
 {
 	std::cout << "Obj: Cat is Created(Copy Constructor)" << std::endl;
 	brain = new Brain();
