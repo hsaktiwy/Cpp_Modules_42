@@ -8,7 +8,7 @@
 			Cure(const Cure& toCopy);
 			~Cure();
 			Cure& operator=(const Cure& obj);
-			AMateria* clone() const;
+			Cure* clone() const;
 			void use(ICharacter& target);
-	}
+	};
 #endif
