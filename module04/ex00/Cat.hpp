@@ -8,6 +8,6 @@ class Cat : public Animal{
 		~Cat();
 		Cat(const Cat& toCopy);
 		Cat& operator=(const Cat& object);
-		void	makeSound( void ) const;
+		void	makeSound( void ) const override;
 };
 #endif

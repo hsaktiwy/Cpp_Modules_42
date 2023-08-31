@@ -6,6 +6,7 @@ class AMateria{
 	protected:
 		std::string	Type;
 	public:
+		AMateria();
 		AMateria(std::string const & type);
 		AMateria(const AMateria& toCopy);
 		AMateria& operator=(const AMateria& toCopy);

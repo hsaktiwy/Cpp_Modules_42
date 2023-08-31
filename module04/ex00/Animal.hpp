@@ -11,6 +11,6 @@ class Animal{
 		Animal(const Animal& toCopy);
 		Animal&	operator=(const Animal& object);
 		std::string	getType( void ) const;
-		void	makeSound( void ) const;
+		virtual void	makeSound( void ) const;
 };
 #endif

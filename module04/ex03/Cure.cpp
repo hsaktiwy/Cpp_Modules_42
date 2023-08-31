@@ -1,12 +1,12 @@
 #include "Cure.hpp"
 
-Cure::Cure() : AMateria();
+Cure::Cure()
 {
 	std::cout << "Cure Default Constructor\n";
-	type = "cure";
+	Type = "cure";
 }
 
-Cure::Cure(const Cure& toCopy)
+Cure::Cure(const Cure& toCopy): AMateria(toCopy.Type)
 {
 	std::cout << "Cure Copy Constructor\n";
 	*this = toCopy;
@@ -29,11 +29,11 @@ Cure& Cure::operator=(const Cure& obj)
 Cure* Cure::clone() const
 {
 	Cure *cure = new Cure();
-	cure = *this;
+	*cure = *this;
 	return (cure);
 }
 
 void Cure::use(ICharacter& target)
 {
-	// ?? 
+	std::cout << "* heals " << target.getName() <<"’s wounds *" << std::endl;
 }

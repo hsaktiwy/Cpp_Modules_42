@@ -4,27 +4,18 @@
 using namespace std;
  
 class A{
-  private:
-    int fixed;
   public:
-    A(int _x
-    {
-      fixed = _x << 8;
-    }
-    void display()
-    {
-      cout << "x = " << x << " y = " << z << endl;
-    }
+    virtual void display(){cout << "A\n";}
+};
+
+class B : public  A{
+  public:
+    void display(){cout << "B\n";};
 };
 
 int main()
 {
-	A a(1,1);
-  A b(2,2);
-
-  a.display();
-  b.display();
-  b = a;
-  b.display();
+	A *a = new B();
+  a->display();
     return 0;
 }
