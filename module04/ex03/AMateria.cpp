@@ -2,7 +2,7 @@
 
 AMateria::AMateria()
 {
-	
+	std::cout << "AMateria Default Constructor\n";
 }
 
 AMateria::AMateria(std::string const & type)
@@ -40,4 +40,5 @@ std::string const & AMateria::getType() const
 void AMateria::use(ICharacter& target)
 {
 	// must be overrided
+	std::cout << "It must do something in the dirived class with the name = ( " << target.getName() << ")" << std::endl;
 }

@@ -5,17 +5,20 @@ using namespace std;
  
 class A{
   public:
-    virtual void display(){cout << "A\n";}
+    virtual void display() = 0;
+    virtual ~A(){std::cout << "GoodbyeA\n";};
 };
 
 class B : public  A{
   public:
-    void display(){cout << "B\n";};
+    void display(){ std::cout << "B\n";};
+      ~B(){std::cout << "GoodbyeB\n";};
 };
 
 int main()
 {
 	A *a = new B();
   a->display();
-    return 0;
+  delete a;
+  return 0;
 }
