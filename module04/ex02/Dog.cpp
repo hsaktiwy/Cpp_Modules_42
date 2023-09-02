@@ -4,18 +4,18 @@ Dog::Dog(): AAnimal()
 {
 	type = "Dog";
 	brain = new Brain();
-	std::cout << "Obj: Dog is Created" << std::endl;
+	std::cout << "Obj: Dog is Created(Default Constructor)" << std::endl;
 }
 
 Dog::~Dog()
 {
-	std::cout << "Obj: Dog is Destroyed" << std::endl;
+	std::cout << "Obj: Dog is Destroyed(Default Destructor)" << std::endl;
 	delete brain;
 }
 
 Dog::Dog(const Dog& toCopy) : AAnimal(toCopy)
 {
-	std::cout << "Obj: Dog is Craeted (Copy Constructed)" << std::endl;
+	std::cout << "Obj: Dog is Created (Copy Constructed)" << std::endl;
 	brain = new Brain();
 	*this = toCopy; 
 }

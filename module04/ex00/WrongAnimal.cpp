@@ -3,16 +3,17 @@
 WrongAnimal::WrongAnimal()
 {
 	type = "WrongAnimal";
-	std::cout << "Obj: WrongAnimal is Created" << std::endl;
+	std::cout << "Obj: WrongAnimal is Created(Default Constructor)" << std::endl;
 }
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "Obj: WrongAnimal is Destroyed" << std::endl;
+	std::cout << "Obj: WrongAnimal is Destroyed(Default Desstructor)" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& toCopy)
 {
+	std::cout << "Obj: WrongAnimal is Created(Copy Constructor)" << std::endl;
 	type = toCopy.type; 
 }
 

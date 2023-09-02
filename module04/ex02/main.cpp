@@ -8,7 +8,7 @@ void leak_f()
 }
 int main()
 {
-	// atexit(leak_f);
+	atexit(leak_f);
 	// int n = 10;
 	Cat *cat = new Cat();
 	Dog *dog = new Dog();

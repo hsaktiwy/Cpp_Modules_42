@@ -2,22 +2,22 @@
 
 Animal::Animal()
 {
-	std::cout << "Obj: Animal is Created" << std::endl;
+	std::cout << "Obj: Animal is Created(Default constructor)" << std::endl;
 }
 
 Animal::~Animal()
 {
-	std::cout << "Obj: Animal is Destroyed" << std::endl;
+	std::cout << "Obj: Animal is Destroyed(Default Destructor)" << std::endl;
 }
 
 Animal::Animal(const Animal& toCopy)
 {
-	type = toCopy.type;
+	std::cout << "Obj: Animal is Created(Copy constructor)" << std::endl;
+	type = toCopy.type; 
 }
 
 Animal& Animal::operator=(const Animal& object)
 {
-	std::cout << "Animal Copy assigne operator" << std::endl;
 	if(this != &object)
 	{
 		type = object.type;

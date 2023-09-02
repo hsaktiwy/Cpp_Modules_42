@@ -4,12 +4,12 @@ Cat::Cat() : AAnimal()
 {
 	type = "Cat";
 	brain = new Brain();
-	std::cout << "Obj: Cat is Created" << std::endl;
+	std::cout << "Obj: Cat is Created(Default Constructor)" << std::endl;
 }
 
 Cat::~Cat()
 {
-	std::cout << "Obj: Cat is Destroyed" << std::endl;
+	std::cout << "Obj: Cat is Destroyed(Default Destructor)" << std::endl;
 	delete brain;
 }
 

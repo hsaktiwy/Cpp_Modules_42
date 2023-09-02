@@ -1,15 +1,15 @@
 #include "Dog.hpp"
 
-Dog::Dog(): Animal()
+Dog::Dog()
 {
 	type = "Dog";
 	brain = new Brain();
-	std::cout << "Obj: Dog is Created" << std::endl;
+	std::cout << "Obj: Dog is Created(Default Constructor)" << std::endl;
 }
 
 Dog::~Dog()
 {
-	std::cout << "Obj: Dog is Destroyed" << std::endl;
+	std::cout << "Obj: Dog is Destroyed(Default Destructor)" << std::endl;
 	delete brain;
 }
 

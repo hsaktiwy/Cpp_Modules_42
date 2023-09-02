@@ -20,7 +20,6 @@ int main()
 	j->makeSound();
 	meta->makeSound();
 	k->makeSound();
-	// ..
 	delete i;
 	delete j;
 	delete meta;
@@ -31,10 +30,9 @@ int main()
 	const WrongCat* wk = new WrongCat();
 	std::cout << wi->getType() << " " << std::endl;
 	std::cout << wk->getType() << " " << std::endl;
-	wi->makeSound(); //will output the cat sound!
+	wi->makeSound();
 	wmeta->makeSound();
 	wk->makeSound();
-	// ..
 	delete wi;
 	delete wmeta;
 	delete wk;
