@@ -3,7 +3,7 @@
 Ice::Ice()
 {
 	std::cout << "Ice Default Constructor\n";
-	Type = "Ice";
+	Type = "ice";
 }
 
 Ice::Ice(const Ice& toCopy): AMateria(toCopy.Type)

@@ -10,7 +10,6 @@ void func_l()
 
 int main()
 {
-	atexit(func_l);
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -26,5 +25,4 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
-	return 0;
 }

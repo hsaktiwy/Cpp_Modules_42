@@ -71,5 +71,7 @@
 		"numeric": "cpp",
 		"random": "cpp",
 		"cinttypes": "cpp"
-	}
+	},
+	"files.autoSave": "onFocusChange",
+	"editor.stickyTabStops": true
 }
