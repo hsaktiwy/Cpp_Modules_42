@@ -1,0 +1,90 @@
+#include "Form.hpp"
+
+Form::Form(): Name("Default"), RequireSignGrade(150), RequireExecGrade(150)
+{
+	Signed = false;
+}
+
+Form::~Form()
+{
+
+}
+
+Form::Form(Form const &copy):Name(copy.Name), RequireSignGrade(copy.RequireSignGrade), RequireExecGrade(copy.RequireExecGrade)
+{
+	Signed = copy.Signed;
+}
+
+Form::Form(std::string name, int SignGrade, int ExecGrade): Name(name), RequireSignGrade(SignGrade), RequireExecGrade(ExecGrade)
+{
+	Signed = false;
+	if (RequireSignGrade < 1 || RequireExecGrade < 1)
+		throw Form::GradeTooHighException();
+	if (RequireSignGrade > 150 || RequireExecGrade > 150)
+		throw Form::GradeTooLowException();
+}
+
+Form&	Form::operator=(const Form& obj)
+{
+	if (this != &obj)
+	{
+		// noting to do ?
+	}
+	return (*this);
+}
+
+std::string	Form::getName( void ) const
+{
+	return (Name);
+}
+
+bool		Form::getSigned( void ) const
+{
+	return (Signed);
+}
+
+int			Form::getRequireSignGrade( void ) const
+{
+	return (RequireSignGrade);
+}
+
+int			Form::getRequireExecGrade( void ) const
+{
+	return (RequireExecGrade);
+}
+
+void		Form::beSigned(Bureaucrat& obj)
+{
+	if (RequireSignGrade >= obj.getGrade())
+	{
+		if (Signed == false)
+		{
+			Signed = true;
+			std::cout << obj.getName() << " signed " << this->getName() << std::endl;
+		}else
+		{
+			std::cout << obj.getName() << " couldn't signe" << this->getName() << "because it already signed" << std::endl;
+		}
+	}
+	else
+	{
+		std::cout << obj.getName() << " couldn't signe" << this->getName() << " because it has too low grade" << std::endl;
+		throw Form::GradeTooLowException();
+	}
+}
+
+const char *Form::GradeTooHighException::what() const throw()
+{
+	return ("Grade is Too High");
+}
+
+const char *Form::GradeTooLowException::what() const throw()
+{
+	return ("Grade is Too Low");
+}
+
+std::ostream&	operator<<(std::ostream &out, const Form& obj)
+{
+	out << obj.getName() << " Form is it signed " << ((obj.getSigned() == true) ? "True" : "False") << ", grade required to sign it " << obj.getRequireSignGrade() << ", grade required to execute it " << obj.getRequireExecGrade();
+	return (out);
+}
