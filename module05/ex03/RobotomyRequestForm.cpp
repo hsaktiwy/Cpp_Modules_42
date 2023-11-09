@@ -38,7 +38,6 @@ bool	RobotomyRequestForm::robotomizing() const
 	for (int i = 0; i < beeping; i++)
 		std::cout << "beep ";
 	std::cout << std::endl;
-	std::cout << "success_rate " << success_rate << std::endl;
 	if (success_rate)
 	{
 		std::cout << this->target << " has been robotomized successfully" << std::endl;
