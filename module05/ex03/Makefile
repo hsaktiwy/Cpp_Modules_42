@@ -22,7 +22,7 @@ main.o : main.cpp  Intern.hpp AForm.hpp  Bureaucrat.hpp  PresidentialPardonForm.
 Intern.o : Intern.cpp   Intern.hpp AForm.hpp Bureaucrat.hpp PresidentialPardonForm.hpp  RobotomyRequestForm.hpp  ShrubberyCreationForm.hpp
 	$(C) $(flag) -c $< -o $@
 clean:
-	rm -r $(obj)
+	rm -f $(obj)
 fclean: clean
-	rm -rf $(Name)
+	rm -f $(Name)
 re: fclean all

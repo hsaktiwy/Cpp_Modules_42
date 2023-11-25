@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/25 16:10:45 by hsaktiwy          #+#    #+#             */
+/*   Updated: 2023/11/25 17:01:41 by hsaktiwy         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Form.hpp"
 
 Form::Form(): Name("Default"), RequireSignGrade(150), RequireExecGrade(150)
@@ -15,7 +27,7 @@ Form::Form(Form const &copy):Name(copy.Name), RequireSignGrade(copy.RequireSignG
 	Signed = copy.Signed;
 }
 
-Form::Form(std::string name, int SignGrade, int ExecGrade): Name(name), RequireSignGrade(SignGrade), RequireExecGrade(ExecGrade)
+Form::Form(const std::string& name, int SignGrade, int ExecGrade): Name(name), RequireSignGrade(SignGrade), RequireExecGrade(ExecGrade)
 {
 	Signed = false;
 	if (RequireSignGrade < 1 || RequireExecGrade < 1)
@@ -29,11 +41,12 @@ Form&	Form::operator=(const Form& obj)
 	if (this != &obj)
 	{
 		// noting to do ?
+		Signed = obj.Signed;
 	}
 	return (*this);
 }
 
-std::string	Form::getName( void ) const
+const std::string&	Form::getName( void ) const
 {
 	return (Name);
 }
@@ -85,6 +98,6 @@ const char *Form::GradeTooLowException::what() const throw()
 
 std::ostream&	operator<<(std::ostream &out, const Form& obj)
 {
-	out << obj.getName() << " Form is it signed " << ((obj.getSigned() == true) ? "True" : "False") << ", grade required to sign it " << obj.getRequireSignGrade() << ", grade required to execute it " << obj.getRequireExecGrade();
+	out << obj.getName() << " Form, is it signed? -> " << ((obj.getSigned() == true) ? "True" : "False") << ", grade required to sign it " << obj.getRequireSignGrade() << ", grade required to execute it " << obj.getRequireExecGrade() << ".";
 	return (out);
 }

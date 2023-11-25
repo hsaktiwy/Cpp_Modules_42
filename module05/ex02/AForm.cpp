@@ -15,7 +15,7 @@ AForm::AForm(AForm const &copy):Name(copy.Name), RequireSignGrade(copy.RequireSi
 	Signed = copy.Signed;
 }
 
-AForm::AForm(std::string name, int SignGrade, int ExecGrade): Name(name), RequireSignGrade(SignGrade), RequireExecGrade(ExecGrade)
+AForm::AForm(const std::string& name, int SignGrade, int ExecGrade): Name(name), RequireSignGrade(SignGrade), RequireExecGrade(ExecGrade)
 {
 	Signed = false;
 	if (RequireSignGrade < 1 || RequireExecGrade < 1)
@@ -29,11 +29,12 @@ AForm&	AForm::operator=(const AForm& obj)
 	if (this != &obj)
 	{
 		// noting to do ?
+		Signed = obj.Signed;
 	}
 	return (*this);
 }
 
-std::string	AForm::getName( void ) const
+const std::string&	AForm::getName( void ) const
 {
 	return (Name);
 }
@@ -63,12 +64,12 @@ void		AForm::beSigned(Bureaucrat& obj)
 			std::cout << obj.getName() << " signed " << this->getName() << std::endl;
 		}else
 		{
-			std::cout << obj.getName() << " couldn't signe" << this->getName() << "because it already signed" << std::endl;
+			std::cout << obj.getName() << " couldn't signe " << this->getName() << "because it already signed" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << obj.getName() << " couldn't signe" << this->getName() << " because it has too low grade" << std::endl;
+		std::cout << obj.getName() << " couldn't signe " << this->getName() << " because it has too low grade" << std::endl;
 		throw AForm::GradeTooLowException();
 	}
 }
@@ -83,8 +84,12 @@ const char *AForm::GradeTooLowException::what() const throw()
 	return ("Grade is Too Low");
 }
 
+const char *AForm::NotSignedException::what() const throw()
+{
+	return ("Not Signed");
+}
 std::ostream&	operator<<(std::ostream &out, const AForm& obj)
 {
-	out << obj.getName() << " Form is it signed " << ((obj.getSigned() == true) ? "True" : "False") << ", grade required to sign it " << obj.getRequireSignGrade() << ", grade required to execute it " << obj.getRequireExecGrade();
+	out << obj.getName() << " Form, is it signed? -> " << ((obj.getSigned() == true) ? "True" : "False") << ", grade required to sign it " << obj.getRequireSignGrade() << ", grade required to execute it " << obj.getRequireExecGrade();
 	return (out);
 }

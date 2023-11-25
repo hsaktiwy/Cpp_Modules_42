@@ -1,9 +1,9 @@
 #include "Intern.hpp"
 
-void 	leaks()
-{
-	system("leaks Buraucrat");
-}
+// void 	leaks()
+// {
+// 	system("leaks Buraucrat");
+// }
 int main()
 {
 	// atexit(leaks);

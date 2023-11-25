@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/11/25 15:26:29 by hsaktiwy          #+#    #+#              #
+#    Updated: 2023/11/25 15:56:55 by hsaktiwy         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 C = c++
 flag = -Wall -Wextra -Werror -std=c++98
 src = Bureaucrat.cpp  main.cpp
@@ -10,7 +22,7 @@ $(Name) : $(obj)
 %.o : %.cpp  Bureaucrat.hpp
 	$(C) $(flag) -c $< -o $@
 clean:
-	rm -r $(obj)
+	rm -f $(obj)
 fclean: clean
-	rm -rf $(Name)
+	rm -f $(Name)
 re: fclean all

@@ -5,7 +5,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 
 	target = "Default";
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string Target) : AForm("ShrubberyCreationForm", 145, 137), target(Target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& Target) : AForm("ShrubberyCreationForm", 145, 137), target(Target)
 {
 
 }
@@ -41,7 +41,7 @@ bool	ShrubberyCreationForm::CreateFileASCIITrees() const
         "     0          |          |           |\n";
 	if (file.is_open())
 	{
-		for (int i =0; i < 4; i++)
+		for (int i = 0; i < 4; i++)
 		{
 			file << tree;
 			if (i < 3)
@@ -62,6 +62,8 @@ bool	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	{
 		return (CreateFileASCIITrees());
 	}
+	else if (!this->getSigned())
+		throw AForm::NotSignedException();
 	else
 		throw AForm::GradeTooLowException();
 	return (false);

@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string IName, int IGrade): name(IName)
+Bureaucrat::Bureaucrat(const std::string& IName, int IGrade): name(IName)
 {
 	grade = 150;
 	if (IGrade < 1)
@@ -20,7 +20,7 @@ Bureaucrat::~Bureaucrat()
 
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &copy)
+Bureaucrat::Bureaucrat(const Bureaucrat &copy): name(copy.name)
 {
 	*this = copy;
 }
@@ -40,7 +40,7 @@ int	Bureaucrat::getGrade( void ) const
 	return (grade);
 }
 
-std::string	Bureaucrat::getName( void ) const
+const std::string&	Bureaucrat::getName( void ) const
 {
 	return (name);
 }

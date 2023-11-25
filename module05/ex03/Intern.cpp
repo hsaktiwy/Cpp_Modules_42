@@ -24,7 +24,7 @@ Intern& Intern::operator=(const Intern& obj)
     return (*this);
 }
 
-static std::string string_tolower(std::string str)
+static std::string string_tolower(std::string& str)
 {
 	for (size_t i = 0; i < str.length(); i++)
 	{
@@ -34,7 +34,7 @@ static std::string string_tolower(std::string str)
 	return (str);
 }
 
-AForm *Intern::makeForm(std::string name, std::string target)
+AForm *Intern::makeForm(std::string name, const std::string& target)
 {
 	AForm *form = NULL;
 	std::string Forms[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};

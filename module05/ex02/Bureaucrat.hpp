@@ -4,19 +4,20 @@
 #include <ostream>
 #include <exception>
 #include "AForm.hpp"
+
 class AForm;
 class Bureaucrat{
 	private:
-		std::string const name;
+		const std::string  name;
 		int grade;
 	public:
-		Bureaucrat(std::string IName, int IGrade);
+		Bureaucrat(const std::string& IName, int IGrade);
 		Bureaucrat();
 		~Bureaucrat();
 		Bureaucrat(const Bureaucrat &copy);
 		Bureaucrat& operator=(const Bureaucrat	&obj);
 		int		getGrade( void ) const;
-		std::string 	getName( void ) const;
+		const std::string& 	getName( void ) const;
 		void	IncrementGrade( void );
 		void	DecrementGrade( void );
 		void	signForm(AForm& form);

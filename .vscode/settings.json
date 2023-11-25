@@ -70,7 +70,12 @@
 		"memory_resource": "cpp",
 		"numeric": "cpp",
 		"random": "cpp",
-		"cinttypes": "cpp"
+		"cinttypes": "cpp",
+		"__tree": "cpp",
+		"list": "cpp",
+		"queue": "cpp",
+		"set": "cpp",
+		"unordered_set": "cpp"
 	},
 	"files.autoSave": "onFocusChange",
 	"editor.stickyTabStops": true

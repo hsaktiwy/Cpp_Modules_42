@@ -20,7 +20,7 @@ ShrubberyCreationForm.o : ShrubberyCreationForm.cpp ShrubberyCreationForm.hpp Bu
 main.o : main.cpp  AForm.hpp  Bureaucrat.hpp  PresidentialPardonForm.hpp  RobotomyRequestForm.hpp  ShrubberyCreationForm.hpp
 	$(C) $(flag) -c $< -o $@
 clean:
-	rm -r $(obj)
+	rm -f $(obj)
 fclean: clean
-	rm -rf $(Name)
+	rm -f $(Name)
 re: fclean all

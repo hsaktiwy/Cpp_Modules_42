@@ -5,7 +5,7 @@ PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm
 
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string Target) : AForm("PresidentialPardonForm", 25, 5), target(Target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string& Target) : AForm("PresidentialPardonForm", 25, 5), target(Target)
 {
 
 }
@@ -32,9 +32,10 @@ bool	PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	if (this->getSigned() && this->getRequireExecGrade() >= executor.getGrade())
 	{
-		std::cout << target << "has been pardoned by Zaphod Beeblebrox." << std::endl;
+		std::cout << target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 		return (true);
-	}
+	}else if(!this->getSigned())
+		throw AForm::NotSignedException();
 	else
 		throw AForm::GradeTooLowException();
 	return (false);
