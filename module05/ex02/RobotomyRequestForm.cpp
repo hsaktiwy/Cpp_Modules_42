@@ -28,7 +28,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 	}
 	return (*this);
 }
-bool	RobotomyRequestForm::robotomizing() const
+void	RobotomyRequestForm::robotomizing() const
 {
     std::srand(time(NULL));
 	int beeping	= std::rand() % 13;
@@ -39,26 +39,23 @@ bool	RobotomyRequestForm::robotomizing() const
 	for (int i = 0; i < beeping; i++)
 		std::cout << "beep ";
 	std::cout << std::endl;
-	std::cout << "success_rate " << success_rate << std::endl;
+	std::cout << "success_rate " << success_rate << std::endl;// ?
 	if (success_rate)
 	{
 		std::cout << this->target << " has been robotomized successfully" << std::endl;
-		return (true);
 	}
 	else
 		std::cout << "Fail to  robotomized the "<< this->target << std::endl;
-	return (false);
 }
 
-bool	RobotomyRequestForm::execute(Bureaucrat const &executor) const
+void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	if (this->getSigned() && this->getRequireExecGrade() >= executor.getGrade())
 	{
-		return (robotomizing());
+		robotomizing();
 	}
 	else if (!this->getSigned())
 		throw AForm::NotSignedException();
 	else
 		throw AForm::GradeTooLowException();
-	return (false);
 }

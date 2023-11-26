@@ -6,7 +6,7 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 15:26:14 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/11/25 17:09:39 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/11/26 10:37:36 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 Bureaucrat::Bureaucrat(const std::string& IName, int IGrade): name(IName)
 {
-	grade = 150;// ?
 	if (IGrade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	if (IGrade > 150)

@@ -10,6 +10,6 @@ class PresidentialPardonForm :public AForm{
 		~PresidentialPardonForm();
 		PresidentialPardonForm(const PresidentialPardonForm& copy);
 		PresidentialPardonForm& operator=(const PresidentialPardonForm& obj);
-		bool	execute(Bureaucrat const &executor) const;
+		void	execute(Bureaucrat const &executor) const;
 };
 #endif

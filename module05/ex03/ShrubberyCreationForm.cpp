@@ -29,7 +29,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-bool	ShrubberyCreationForm::CreateFileASCIITrees() const
+void	ShrubberyCreationForm::CreateFileASCIITrees() const
 {
 	std::string filename = this->target+"_shrubbery";
 	std::ofstream file(filename.c_str());
@@ -49,22 +49,17 @@ bool	ShrubberyCreationForm::CreateFileASCIITrees() const
 		}
 		file.close();
 		std::cout << "The file " << filename << " is created." << std::endl;
-		return (true);
 	}
 	else
 		std::cout << "Fail to open the file ()!!" << filename << std::endl;
-	return (false);
 }
 
-bool	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	if (this->getSigned() && this->getRequireExecGrade() >= executor.getGrade())
-	{
-		return (CreateFileASCIITrees());
-	}
+		CreateFileASCIITrees();
 	else if (!this->getSigned())
 		throw AForm::NotSignedException();
 	else
 		throw AForm::GradeTooLowException();
-	return (false);
 }

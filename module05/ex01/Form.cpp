@@ -6,7 +6,7 @@
 /*   By: hsaktiwy <hsaktiwy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:10:45 by hsaktiwy          #+#    #+#             */
-/*   Updated: 2023/11/25 17:01:41 by hsaktiwy         ###   ########.fr       */
+/*   Updated: 2023/11/26 11:15:05 by hsaktiwy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,21 +69,9 @@ int			Form::getRequireExecGrade( void ) const
 void		Form::beSigned(Bureaucrat& obj)
 {
 	if (RequireSignGrade >= obj.getGrade())
-	{
-		if (Signed == false)
-		{
-			Signed = true;
-			std::cout << obj.getName() << " signed " << this->getName() << std::endl;
-		}else
-		{
-			std::cout << obj.getName() << " couldn't signe" << this->getName() << "because it already signed" << std::endl;
-		}
-	}
+		Signed = true;
 	else
-	{
-		std::cout << obj.getName() << " couldn't signe" << this->getName() << " because it has too low grade" << std::endl;
 		throw Form::GradeTooLowException();
-	}
 }
 
 const char *Form::GradeTooHighException::what() const throw()

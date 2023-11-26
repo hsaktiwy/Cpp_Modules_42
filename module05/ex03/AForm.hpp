@@ -21,7 +21,7 @@ class AForm{
 		int			getRequireSignGrade( void ) const;
 		int			getRequireExecGrade( void ) const;
 		void		beSigned(Bureaucrat& obj);
-		virtual bool		execute(Bureaucrat const & executor) const = 0;
+		virtual void		execute(Bureaucrat const & executor) const = 0;
 		class	GradeTooLowException : public std::exception{
 			public:
 				const char *what() const throw();

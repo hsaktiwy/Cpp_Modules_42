@@ -57,21 +57,9 @@ int			AForm::getRequireExecGrade( void ) const
 void		AForm::beSigned(Bureaucrat& obj)
 {
 	if (RequireSignGrade >= obj.getGrade())
-	{
-		if (Signed == false)
-		{
-			Signed = true;
-			std::cout << obj.getName() << " signed " << this->getName() << std::endl;
-		}else
-		{
-			std::cout << obj.getName() << " couldn't signe " << this->getName() << "because it already signed" << std::endl;
-		}
-	}
+		Signed = true;
 	else
-	{
-		std::cout << obj.getName() << " couldn't signe " << this->getName() << " because it has too low grade" << std::endl;
 		throw AForm::GradeTooLowException();
-	}
 }
 
 const char *AForm::GradeTooHighException::what() const throw()
