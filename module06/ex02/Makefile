@@ -12,9 +12,9 @@ Base.o: Base.cpp Base.hpp
 %.o : %.cpp A.hpp B.hpp C.hpp Base.hpp
 	$(C) $(flag) -c $< -o $@
 clean:
-	rm -r $(obj)
+	rm -f $(obj)
 fclean: clean
-	rm -rf $(Name)
+	rm -f $(Name)
 re: fclean all
 
 .PHONY: re fclean all clean

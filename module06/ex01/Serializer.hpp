@@ -9,5 +9,8 @@ class Serializer {
 		static Data			*deserialize(uintptr_t raw);
 	private:
 		Serializer();
+		~Serializer();
+		Serializer(const Serializer& copy);
+		Serializer& operator=(const Serializer& obj);
 };
 #endif

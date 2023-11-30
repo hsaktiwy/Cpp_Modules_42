@@ -7,6 +7,7 @@ int main()
 		identify(p);
 		Base& x = *p;
 		identify(x);
+		delete p;
 	}
 	std::cout << "////////////////////////////////////////////////////////////" << std::endl;
 	{
@@ -14,6 +15,7 @@ int main()
 		identify(p);
 		Base& x = *p;
 		identify(x);
+		delete p;
 	}
 	std::cout << "////////////////////////////////////////////////////////////" << std::endl;
 	{
@@ -21,6 +23,7 @@ int main()
 		identify(p);
 		Base& x = *p;
 		identify(x);
+		delete p;
 	}
 	std::cout << "////////////////////////////////////////////////////////////" << std::endl;
 	{
@@ -28,13 +31,7 @@ int main()
 		identify(p);
 		Base& x = *p;
 		identify(x);
-	}
-	std::cout << "////////////////////////////////////////////////////////////" << std::endl;
-	{
-		Base *p = new Base();
-		identify(p);
-		Base& x = *p;
-		identify(x);
+		delete p;
 	}
 	return (0);
 }

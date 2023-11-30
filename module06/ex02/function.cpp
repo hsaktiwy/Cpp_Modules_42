@@ -5,7 +5,7 @@ Base	*generate(void)
 	static int init_seeds;
 	if (init_seeds == 0)
 	{
-		std::srand(static_cast<unsigned int>(std::time(nullptr)));
+		std::srand(static_cast<unsigned int>(std::time(NULL)));
 		init_seeds++;
 	}
 	int i = std::rand() % 3 + 1;
@@ -62,7 +62,7 @@ void	identify(Base& p)
 		std::cout << "The type pointe bye is  A"<< std::endl;
 		(void)a;
 	}
-	catch(const std::exception& e)
+	catch(const std::bad_cast& e)
 	{
 		try
 		{
@@ -71,7 +71,7 @@ void	identify(Base& p)
 			(void)b;
 
 		}
-		catch(const std::exception& e)
+		catch(const std::bad_cast& e)
 		{
 			try
 			{
@@ -79,7 +79,7 @@ void	identify(Base& p)
 				std::cout << "The type pointe bye is  C" << std::endl;
 				(void)c;
 			}
-			catch(const std::exception& e)
+			catch(const std::bad_cast& e)
 			{
 				std::cout << "The type is the Base classe it self" << std::endl;
 			}
