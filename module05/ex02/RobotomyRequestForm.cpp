@@ -23,7 +23,6 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 {
 	if (this != &obj)
 	{
-		// noting to do here?
 		target = obj.target;
 	}
 	return (*this);

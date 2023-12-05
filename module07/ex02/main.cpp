@@ -1,13 +1,8 @@
 #include "Array.hpp"
 #define MAX_VAL 750
-void    leaks()
-{
-    system("leaks a.out");
-}
 
 int main()
 {
-    atexit(leaks);
     {
         Array<int> arr(10);
         for (unsigned int i = 0; i < arr.size(); i++)
@@ -20,8 +15,6 @@ int main()
             {
                 std::cerr << e.what() << '\n';
             }
-            
-        
         }
         for (unsigned int i = 0; i < arr.size() * 2; i++)
         {
@@ -47,10 +40,11 @@ int main()
         }
         //SCOPE
         {
-            Array<int> tmp = numbers;
+            Array<int> tmp;
+            tmp = numbers;
             Array<int> test(tmp);
             int correct = 1;
-            for(unsigned int i = 0; i < numbers.size(); i++)
+            for(unsigned int i = 0; i < numbers.size() && correct == 1; i++)
             {
                 try
                 {
@@ -95,12 +89,6 @@ int main()
         {
             std::cerr << e.what() << '\n';
         }
-
-        for (int i = 0; i < MAX_VAL; i++)
-        {
-            numbers[i] = std::rand();
-        }
-        delete [] mirror;//
-        return 0;
+        delete [] mirror;
     }
 }

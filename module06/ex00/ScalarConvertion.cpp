@@ -57,13 +57,13 @@ static bool		parse_error(std::string &str)
 	}
 	if (str[0] == '+' || str[0] == '-')
 		signe++;
-	if (str[0] == '.' || str[size - 1] == '.')
+	if (str[0] == '.' || str[size - 1] == '.' || ((str[0] == 'f' || str[0] == '+' || str[0] == '-') && size == 1))
 		return (true);
 	for (int i = 0; i < size; i++)
 	{
 		if (str[i] == 'f')
 		{
-			if (!(i == size - 1) || size == 1)
+			if (!(i == size - 1))
 				return (true);
 		}
 		if (str[i] == '.' && point == 0)
