@@ -2,24 +2,15 @@
 #define EASYFIND_HPP
 #include <exception>
 #include <iostream>
-class  ExceptionNotFound : public std::exception
-{
-    const char *what() const throw()
-    {
-        return ("No Occurrence was found");
-    }
-};
+#include <algorithm>
+
 template <typename T> void  easyfind(T &container, int value)
 {
-    for(typename T::iterator it = container.begin(); it != container.end(); it++)
-    {
-        if (*it == value)
-        {
-            std::cout << "First occurrence founded : " << *it << std::endl;
-            return ;
-        }
-    }
-    throw ExceptionNotFound();
+
+    if (std::find(container.begin(), container.end(), value) != container.end())
+            std::cout << "Element Founded\n" << std::endl;
+    else
+        throw std::logic_error("No occurrence founded");
 }
 
 #endif

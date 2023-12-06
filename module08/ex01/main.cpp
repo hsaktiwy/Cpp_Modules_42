@@ -1,11 +1,11 @@
 #include <iostream>
 #include "Span.hpp"
 #include <vector>
-
+#include <list>
 int main()
 {
 	Span sp = Span(5);
-	sp.addNumber(6);
+	sp.addNumber(3);
 	sp.addNumber(3);
 	sp.addNumber(17);
 	sp.addNumber(9);
@@ -28,11 +28,15 @@ int main()
 	}
 	{
 		std::vector<int> vect(20000, 0);
+		// std::list<int> vect;
+
 		for (int i = 0; i < 20000; i++)
 		{
-			vect[i] = i;
+			// vect.push_back(i);
+				vect[i] = i;
 		}
 		Span span(20000);
+
 		try
 		{
 			span.addNumbers(vect.begin(), vect.end());
@@ -52,6 +56,15 @@ int main()
 		try
 		{
 			std::cout << span.longestSpan() << std::endl;
+		}
+		catch(std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+
+		try
+		{
+			sp.addNumber(232312);
 		}
 		catch(std::exception &e)
 		{

@@ -41,7 +41,7 @@ void Span::addNumber(int n)
 		size++;
 	}
 	else
-		throw ExceptionSpanNoSpace();
+		throw std::logic_error("Not space left");
 }
 
 int	Span::shortestSpan( void )
@@ -62,7 +62,7 @@ int	Span::shortestSpan( void )
 		}
 	}
 	else
-		throw ExceptionSpanNoData();
+		throw std::logic_error("No data or not enough data");
 	return (shortest);
 }
 
@@ -71,5 +71,5 @@ int	Span::longestSpan( void )
 	if (myset.size() > 1)
 		return (*(myset.rbegin()) - *(myset.begin()));
 	else
-		throw ExceptionSpanNoData();
+		throw std::logic_error("No data or not enough data");
 }

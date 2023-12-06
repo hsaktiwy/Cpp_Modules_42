@@ -7,7 +7,7 @@ class Span {
 	private:
 		unsigned int N;
 		unsigned int size;
-        std::set<int>   myset;
+        std::multiset<int>   myset;
 	public:
 		Span();
 		Span(unsigned int n);
@@ -19,31 +19,16 @@ class Span {
 		{
 			int	addnum;
 
-			addnum = end - begin;
-			std::cout << addnum << std::endl;
+			addnum = std::distance(begin, end);
 			if (size + addnum <= N)
 			{
 				myset.insert(begin, end);
 				size += addnum;
 			}
 			else
-				throw ExceptionSpanNoSpace();
+				throw	std::logic_error("Not space left");
 		}
         int	shortestSpan( void );
         int	longestSpan( void );
-		class  ExceptionSpanNoSpace : public std::exception
-		{
-			const char *what() const throw()
-			{
-				return ("Not space left");
-			}
-		};
-		class  ExceptionSpanNoData : public std::exception
-		{
-			const char *what() const throw()
-			{
-				return ("No data or not enough data");
-			}
-		};
 };
 #endif
