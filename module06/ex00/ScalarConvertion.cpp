@@ -102,7 +102,7 @@ static bool 	zero_fraction(const std::string &str)
 		return (true);
 	return (false);
 }
-
+// #include <iomanip>
 void		ScalarConvertion::Convert(const std::string &str)
 {
 	int				i;

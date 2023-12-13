@@ -1,7 +1,8 @@
 #include "ScalarConvertion.hpp"
-
+#include <limits>
 int main(int argc, char **argv)
 {
+    std::cout<<__DBL_MAX__<<std::endl;
     if (argc == 2)
     {
         try

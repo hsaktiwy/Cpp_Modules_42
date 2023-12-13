@@ -33,7 +33,7 @@ int main()
 		for (int i = 0; i < 20000; i++)
 		{
 			// vect.push_back(i);
-				vect[i] = i;
+			vect[i] = i;
 		}
 		Span span(20000);
 

@@ -8,6 +8,20 @@ class Span {
 		unsigned int N;
 		unsigned int size;
         std::multiset<int>   myset;
+		template <typename Iterator> int my_distance(Iterator begin, Iterator end)
+		{
+			int			result;
+			Iterator	curr;
+
+			result = 0;
+			curr = begin;
+			while (curr != end)
+			{
+				++curr;
+				++result;
+			}
+			return (result);
+		}
 	public:
 		Span();
 		Span(unsigned int n);
@@ -15,20 +29,20 @@ class Span {
 		Span(const Span& copy);
 		Span& operator=(const Span& obj);
 		void addNumber(int n);
-		template <typename T> void addNumbers(T begin, T end)
+		template <typename Iterator> void addNumbers(Iterator begin, Iterator end)
 		{
 			int	addnum;
 
-			addnum = std::distance(begin, end);
+			addnum = my_distance(begin, end);
 			if (size + addnum <= N)
 			{
 				myset.insert(begin, end);
 				size += addnum;
 			}
 			else
-				throw	std::logic_error("Not space left");
+				throw	std::logic_error("No space left");
 		}
-        int	shortestSpan( void );
-        int	longestSpan( void );
+		int	shortestSpan( void );
+		int	longestSpan( void );
 };
 #endif

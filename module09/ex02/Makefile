@@ -1,13 +1,13 @@
 C = c++
-flag = -Wall 
-src = ScalarConvertion.cpp main.cpp
+flag = -Wall -Wextra -Werror -std=c++98
+src = PmergeMe.cpp main.cpp
 obj = $(src:.cpp=.o)
 Name = a.out
 all : $(Name)
 
 $(Name) : $(obj)
 	$(C) $(obj) -o $@
-%.o : %.cpp ScalarConvertion.hpp 
+%.o : %.cpp
 		$(C) $(flag) -c $< -o $@
 clean:
 		rm -f $(obj)

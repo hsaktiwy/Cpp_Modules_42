@@ -3,6 +3,7 @@
 #include <iostream>
 #include <limits>
 #include <string>
+#include <iomanip>
 class ScalarConvertion {
 	public:
 		static void		Convert(const std::string &str);

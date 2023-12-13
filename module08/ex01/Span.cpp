@@ -41,7 +41,7 @@ void Span::addNumber(int n)
 		size++;
 	}
 	else
-		throw std::logic_error("Not space left");
+		throw std::logic_error("No space left");
 }
 
 int	Span::shortestSpan( void )
