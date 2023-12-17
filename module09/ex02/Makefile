@@ -2,7 +2,7 @@ C = c++
 flag = -Wall -Wextra -Werror -std=c++98
 src = PmergeMe.cpp main.cpp
 obj = $(src:.cpp=.o)
-Name = a.out
+Name = PmergeMe
 all : $(Name)
 
 $(Name) : $(obj)

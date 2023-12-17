@@ -81,7 +81,8 @@
 		"__memory": "cpp",
 		"filesystem": "cpp",
 		"*.tpp": "cpp",
-		"map": "cpp"
+		"map": "cpp",
+		"climits": "cpp"
 	},
 	"files.autoSave": "onFocusChange",
 	"editor.stickyTabStops": true
