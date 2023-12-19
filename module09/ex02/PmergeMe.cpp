@@ -5,32 +5,32 @@ PmergeMe::PmergeMe()
 
 }
 
-// static void valid_args(const char **argv, std::vector<int> &vector)
-// {
-//     int plus;
-//     std::string  error = "Invalide arguments ";;
+static void valid_args(const char **argv, std::vector<int> &vector)
+{
+    int plus;
+    std::string  error = "Invalide arguments ";;
 
-//     for(int i = 0; argv[i]; i++)
-//     {    
-//         plus = 0;
-//         for (int j = 0; argv[i][j]; j++)
-//         {
-//             if (!std::isdigit(argv[i][j]))
-//             {
-//                 if (argv[i][j] == '+' && !plus)
-//                     plus++;
-//                 else
-//                     throw std::logic_error(error + argv[i]);
-//             }
-//         }
-//         // fill our containers with this arguments
-//         long    integer = std::atol(argv[i]);
-//         if (integer >= INT_MIN && integer <= INT_MAX)
-//             vector.push_back(integer);
-//         else
-//             throw std::logic_error(error + argv[i]);
-//     }
-// }
+    for(int i = 0; argv[i]; i++)
+    {    
+        plus = 0;
+        for (int j = 0; argv[i][j]; j++)
+        {
+            if (!std::isdigit(argv[i][j]))
+            {
+                if (argv[i][j] == '+' && !plus)
+                    plus++;
+                else
+                    throw std::logic_error(error + argv[i]);
+            }
+        }
+        // fill our containers with this arguments
+        long    integer = std::atol(argv[i]);
+        if (integer >= INT_MIN && integer <= INT_MAX)
+            vector.push_back(integer);
+        else
+            throw std::logic_error(error + argv[i]);
+    }
+}
 
 template <typename T> void display(T &container)
 {
@@ -54,14 +54,14 @@ void display(std::vector<std::pair<int , int> > &container)
 PmergeMe::PmergeMe(char **argv)
 {
     // check our argument validitie and fill our containers
-    // valid_args((const char **)argv, vector);
-    size_t size = 1000000;
-    (void )argv;
-    std::srand(std::time(NULL));
-    for(size_t i = 0; i < size; i++)
-    {
-        vector.push_back((std::rand() % 1000000));
-    }
+    valid_args((const char **)argv, vector);
+    // size_t size = 1000000;
+    // (void )argv;
+    // std::srand(std::time(NULL));
+    // for(size_t i = 0; i < size; i++)
+    // {
+    //     vector.push_back((std::rand() % 1000000));
+    // }
     // just for diaplying the arguments, i think we need to chsnge this before pushing to not make people confused
     // display(vector);
 }
@@ -224,8 +224,7 @@ template <typename T> bool my_is_sorted(T container)
     }
     return (true);
 }
-
-static void FJAOnVector(std::vector<int> vector,int *Jacobsthal, int size)
+static void FJAOnVector(std::vector<int> vector,long *Jacobsthal, int size)
 {
     // this will hold the last value in our conatiner if it odd 2k + 1
     std::ios_base::sync_with_stdio(false);
@@ -240,9 +239,7 @@ static void FJAOnVector(std::vector<int> vector,int *Jacobsthal, int size)
     if (vector.size() % 2 == 1)
         odd = vector[vector.size() - 1];
     creat_pairs_vect(vector, pairs);
-    std::cout << "vector :" << timer(false) << std::endl;
     merge_sort_vect(pairs, 0, pairs.size() - 1);
-    std::cout << "vector :" << timer(false) << std::endl;
     add_sequense_vector(sequence, pairs);
     size_t number = pairs.size() - 1;
     int Jindex = 0;
@@ -293,17 +290,19 @@ static void FJAOnVector(std::vector<int> vector,int *Jacobsthal, int size)
         else
             sequence.insert(it, odd);
     }
-    std::cout << " Time took using Jacops number as indexs : " << timer(false)  << " ms" << std::endl;
-    // display(sequence);
+    double finished = timer(false);
+    std::cout << "Before : " << std::endl;
+    display(sequence);
+    std::cout << "Time to process a range of " << sequence.size() << " elements with std::vector : " << finished << " ms" << std::endl;
     if (!my_is_sorted(sequence))
     {
         std::cout << "Not Sorted\n" << std::endl;
     }
-    else
+    else if (sequence.size() == vector.size())
         std::cout << "Sorted\n" << std::endl;
 }
 
-static void FJAOnDeque(std::vector<int> deque,int *Jacobsthal, int size)
+static void FJAOnDeque(std::vector<int> deque,long *Jacobsthal, int size)
 {
     std::ios_base::sync_with_stdio(false);
     std::cin.tie(NULL);
@@ -317,9 +316,7 @@ static void FJAOnDeque(std::vector<int> deque,int *Jacobsthal, int size)
     if (deque.size() % 2 == 1)
         odd = deque[deque.size() - 1];
     creat_pairs_deque(deque, pairs);
-    std::cout << "deque :" << timer(false) << std::endl;
     merge_sort_deque(pairs, 0, pairs.size() - 1);
-    std::cout << "deque :" << timer(false) << std::endl;
     add_sequense_deque(sequence, pairs);
     size_t number = pairs.size() - 1;
     int Jindex = 0;
@@ -370,8 +367,8 @@ static void FJAOnDeque(std::vector<int> deque,int *Jacobsthal, int size)
         else
             sequence.insert(it, odd);
     }
-    std::cout << " Time took using Jacops number as indexs : " << timer(false)  << " ms" << std::endl;
-    // display(sequence);
+    double finished = timer(false);
+    std::cout << "Time to process a range of "<< sequence.size() <<" elements with std::deque : " << finished << " ms" << std::endl;
     if (!my_is_sorted(sequence))
     {
         std::cout << "Not Sorted\n" << std::endl;
@@ -382,11 +379,13 @@ static void FJAOnDeque(std::vector<int> deque,int *Jacobsthal, int size)
 
 void PmergeMe::run( void )
 {
-    int Jacobsthal[] = {3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731, 5461, 10923, 21845, 43691, 87381, 174763, 349525, 699051, 1398101, 2796203, 5592405, 11184811, 22369621, 44739243, 89478485, 178956971, 357913941, 715827883, 1431655765};
+    long Jacobsthal[] = {3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731, 5461, 10923, 21845, 43691, 87381, 174763, 349525, 699051, 1398101, 2796203, 5592405, 11184811, 22369621, 44739243, 89478485, 178956971, 357913941, 715827883, 1431655765, 2863311531, 5726623061, 11453246123};
     if (vector.size() > 1 && !my_is_sorted(vector))
     {
-        FJAOnVector(vector , Jacobsthal, 30);
-        FJAOnDeque(vector , Jacobsthal, 30);
+        std::cout << "Before : " << std::endl;
+        display(vector);
+        FJAOnVector(vector , Jacobsthal, 33);
+        FJAOnDeque(vector , Jacobsthal, 33);
     }
 }
 

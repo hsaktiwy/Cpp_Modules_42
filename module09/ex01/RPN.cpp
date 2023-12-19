@@ -44,7 +44,9 @@ RPN& RPN::operator=(const RPN& obj)
 
 void    RPN::run(void)
 {
-    for(size_t i = 0; i < data.size(); i++)
+    size_t i = 0;
+
+    while (i < data.size())
     {
         if (data[i] == '+' || data[i] == '-' || data[i] == '/' || data[i] == '*')
         {
@@ -69,8 +71,9 @@ void    RPN::run(void)
         }
         if (std::isdigit(data[i]))
             stack.push(data[i] - '0');
+        i++;
     }
-    if (stack.size() == 1)
+    if (stack.size() == 1 && i == data.size())
     {
         std::cout << stack.top() << std::endl;
         stack.pop();

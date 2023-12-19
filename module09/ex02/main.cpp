@@ -7,7 +7,6 @@ int main(int argc, char **argv)
         try
         {
             PmergeMe obj = PmergeMe(argv + 1);
-            // obj.FJAOnVector();
             obj.run();
         } catch(std::exception &e)
         {

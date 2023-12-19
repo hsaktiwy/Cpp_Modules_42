@@ -18,21 +18,6 @@ static void AddToNode(std::string &seperator,std::string& line, std::map<std::st
     }
 }
 
-static void DefineSeperator(std::string &str, std::string &line)
-{
-    int i = 0;
-    int s1,s2;
-
-    while (std::isalpha(line[i]))
-        i++;
-    s1 = i;
-    while (!std::isalpha(line[i]))
-        i++;
-    s2 = i;
-    // std::cout << s1 << " " << s2 << " " << std::endl; 
-    str = line.substr(s1, s2 - s1);
-}
-
 static void InitializeData(std::ifstream &file, std::map<std::string , float> &map)
 {
     std::string seperator;
@@ -47,7 +32,10 @@ static void InitializeData(std::ifstream &file, std::map<std::string , float> &m
         {
             // std::cout << "In the game" << std::endl;
             // define the seperator first.
-            DefineSeperator(seperator, line);
+            if (line == "date,exchange_rate")
+                seperator = ",";
+            else
+                throw std::logic_error("Unknown data format (it should be like this \'date,exchange_rate\')");
             // std::cout << "data seperator" << seperator << std::endl;
             while (std::getline(file, line))
             {
@@ -59,13 +47,6 @@ static void InitializeData(std::ifstream &file, std::map<std::string , float> &m
     else
         throw BitcoinExchange::FilesException();
 } 
-// static void display(std::map<std::string, float> &data)
-// {
-//     for(std::map<std::string, float>::iterator it = data.begin(); it != data.end(); it++)
-//     {
-//         std::cout << it->first << " " << it->second << std::endl;
-//     }
-// }
 
 BitcoinExchange::BitcoinExchange(const std::string &filename) : FileDataName("data.csv"), InputFileName(filename)
 {
@@ -149,18 +130,18 @@ static void run_helper(std::string &seperator,std::string& line, std::map<std::s
         // check date validity
         if (!CheckDate(date))
         {
-            std::cerr << "Error: bad input => " << date << std::endl;
+            std::cout << "Error: bad input => " << date << std::endl;
             error = true;
         }
         // check value bounder [0, 1000]
         if(!error && value < 0)
         {
-            std::cerr << "Error: not a positive number." << std::endl;
+            std::cout << "Error: not a positive number." << std::endl;
             error = true;
         }
         if (!error && value > 1000)
         {
-            std::cerr << "Error: too large a number." << std::endl;
+            std::cout << "Error: too large a number." << std::endl;
             error = true;
         }
         // search for the data using lower_bound that will return a iterator that has the first
@@ -184,7 +165,7 @@ static void run_helper(std::string &seperator,std::string& line, std::map<std::s
     {
         std::string date = line;
         if (!CheckDate(date))
-            std::cerr << "Error: bad input => " << date << std::endl;
+            std::cout << "Error: bad input => " << date << std::endl;
         // ????????
     }
 }
@@ -203,7 +184,10 @@ void    BitcoinExchange::run( void )
         {
             // std::cout << "In the game" << std::endl;
             // define the seperator first.
-            DefineSeperator(seperator, line);
+            if (line == "date | value")
+                seperator = " | ";
+            else
+                throw std::logic_error("Unknown Input format (it should be like this \'date | value\')");
             // std::cout << "data seperator" << seperator << std::endl;
             while (std::getline(InputFile, line))
             {
